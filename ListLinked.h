@@ -38,7 +38,7 @@ class ListLinked : public List<T> {
             }
             return out;
         }
-        void insert(int pos, T e) {
+        void insert(int pos, T e)  {
             if (pos > n || pos < 0) {
             throw std::out_of_range("Index out of range");
             }
@@ -59,43 +59,50 @@ class ListLinked : public List<T> {
 
             ++n;
         }
-        void append(T e) {
+        void append(T e)  {
             insert(n, e);
         }
-        void prepend(T e){
+        void prepend(T e) {
             insert(0, e);
         }
-        T remove(int pos){
-            if (pos > n || pos < 0) {
-            throw std::out_of_range("Index out of range");
+        T remove(int pos) {
+            if (pos >= n || pos < 0) {
+                throw std::out_of_range("Index out of range");
             }
+
             Node<T>* current = first;
-            Node<T>* aux = first->next;
-             if (pos == 0) {
-                first = first->next;  
+            Node<T>* aux = nullptr;
+
+            // Special case: removing the first element
+            if (pos == 0) {
+                first = first->next;
                 T data = current->data;
-                delete current;      
+                delete current;
                 --n;
                 return data;
             }
+
+            // Traverse to the node just before the one to be removed
             for (int i = 0; i < pos - 1; ++i) {
                 current = current->next;
             }
+
             aux = current->next;
+            if (aux == nullptr) {
+                throw std::runtime_error("Unexpected null pointer");
+            }
+
             current->next = aux->next;
             T data = aux->data;
             delete aux;
             --n;
             return data;
         }
-        T get(int pos){
-            if (pos > n || pos < 0) {
+        T get(int pos) {
+            if (pos >= n || pos < 0) {
             throw std::out_of_range("Index out of range");
             }
             Node<T>* current = first;
-            if (pos == 0) {
-                return current->data;
-            }
             for (int i = 0; i < pos; ++i) {
                 current = current->next;
             }
@@ -113,10 +120,10 @@ class ListLinked : public List<T> {
             }
             return -1;
         }
-        bool empty(){
+        bool empty() {
             return first == nullptr;
         }
-        int size(){
+        int size() {
             return n;
         } 
 

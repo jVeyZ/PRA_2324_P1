@@ -34,7 +34,7 @@ class ListArray : public List<T> {
         delete arr;
       }
 
-      void insert(int pos, T e) override {
+      void insert(int pos, T e) {
         try {
           if (pos <= n && pos >= 0) {
             if (n == max) {
@@ -54,15 +54,15 @@ class ListArray : public List<T> {
 
       }
 
-      void append(T e) override{
+      void append(T e){
         insert(n, e);
       }
 
-      void prepend(T e) override{
+      void prepend(T e)  {
         insert(0, e); 
       }
 
-      T remove(int pos) override{
+      T remove(int pos)   {
         int val;
         try {
           if (pos < n && pos >= 0) {
@@ -75,14 +75,14 @@ class ListArray : public List<T> {
             throw std::out_of_range("");
           }
         } catch (std::out_of_range&) {
-          std::cout << "out_of_range";
+          std::cout << "out_of_range \n";
         }
         return val;
       }
 
-      T get(int pos) override{
+      T get(int pos) {
          try {
-          if (pos <= max && pos >= 0) {
+          if (pos < n && pos >= 0) {
           return arr[pos];
           } 
           else {
@@ -95,7 +95,7 @@ class ListArray : public List<T> {
 
       }
 
-      int search(T e) override{
+      int search(T e)  {
         for (int i = 0; i < n; ++i) {
           if (arr[i] == e) {
         return i;
@@ -104,13 +104,13 @@ class ListArray : public List<T> {
         return -1;
       }
 
-      bool empty() override{
+      bool empty()   {
         if (size() == 0) {
         return true;
         }
       }
 
-      int size() override{
+      int size()   {
         return n; 
       }
 
