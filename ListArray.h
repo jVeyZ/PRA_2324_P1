@@ -96,11 +96,10 @@ class ListArray : public List<T> {
       }
 
       int search(T e) override{
-        int i = 0;
-        for (const T& element: arr) {
-          if (element == e) {
-          return i;}
-          i++;
+        for (int i = 0; i < n; ++i) {
+          if (arr[i] == e) {
+        return i;
+          }
         }
         return -1;
       }
