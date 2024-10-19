@@ -20,6 +20,11 @@ bin/testCircle: testCircle.cpp Circle.o Shape.o Point2D.o
 	mkdir -p bin
 	g++ -o bin/testCircle testCircle.o Circle.o Shape.o Point2D.o
 
+bin/testRectangle: testRectangle.cpp Rectangle.o Shape.o Point2D.o
+	g++ -c testRectangle.cpp -o testRectangle.o
+	mkdir -p bin
+	g++ -o bin/testRectangle testRectangle.o Rectangle.o Shape.o Point2D.o
+
 Point2D.o: Point2D.h Point2D.cpp
 	g++ -c Point2D.cpp
 
@@ -28,6 +33,9 @@ Shape.o: Shape.h Shape.cpp
 
 Circle.o: Circle.h Circle.cpp
 	g++ -c Circle.cpp
+
+Rectangle.o: Rectangle.h Rectangle.cpp
+	g++ -c Rectangle.cpp
 
 clean:
 	rm -r *.o *.gch bin
