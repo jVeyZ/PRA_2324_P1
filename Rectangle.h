@@ -21,7 +21,7 @@ class Rectangle : public Shape{
     double area() const override;
     double perimeter() const override;
     void translate(double incX, double incY) override;
-    void print() override;
+    virtual void print() override;
 
     Rectangle();
     Rectangle(std::string color, Point2D* vertices);

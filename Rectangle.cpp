@@ -13,6 +13,7 @@ Rectangle::Rectangle(){
     vs[1]=Point2D(1,0.5);
     vs[2]=Point2D(1,-0.5);
     vs[3]=Point2D(-1,-0.5);
+    set_color(get_color());
 }
 Rectangle::Rectangle(std::string color, Point2D* vertices){
     set_vertices(vertices);
