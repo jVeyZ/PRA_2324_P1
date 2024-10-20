@@ -1,9 +1,7 @@
 #include <stdexcept>
-#include <iostream>
-#include "Shape.h"
 #include "Point2D.h"
 #include "Square.h"
-#include "Rectangle.h"
+
 
 bool Square::check(Point2D* vertices) {
     double d1 = Point2D::distance(vertices[0], vertices[1]);
