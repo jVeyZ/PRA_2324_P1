@@ -1,3 +1,6 @@
+#ifndef LISTARRAY_H
+#define LISTARRAY_H
+
 #include <iostream>
 #include <ostream>
 #include <stdexcept>
@@ -31,7 +34,7 @@ class ListArray : public List<T> {
       }
 
       ~ListArray(){
-        delete arr;
+        delete[] arr;
       }
 
       void insert(int pos, T e) {
@@ -137,3 +140,5 @@ class ListArray : public List<T> {
 
 
 };
+
+#endif

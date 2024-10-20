@@ -1,3 +1,6 @@
+#ifndef CIRCLE_H
+#define CIRCLE_H
+
 #include <iostream>
 #include "Point2D.h"
 #include "Shape.h"
@@ -22,3 +25,5 @@ class Circle : public Shape {
     void print() override;
 
 };
+
+#endif
