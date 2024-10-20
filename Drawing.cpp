@@ -1,9 +1,8 @@
 #include "Drawing.h"
-#include "ListLinked.h" // Assuming ListLinked is implemented in this header
+#include "ListLinked.h" 
 
 Drawing::Drawing() {
-    shapes = new ListLinked<Shape*>(); // Using ListLinked<Shape*> as the implementation
-}
+    shapes = new ListLinked<Shape*>(); 
 
 Drawing::~Drawing() {
     delete shapes;
