@@ -41,3 +41,4 @@ void Drawing::move_squares(double incX, double incY) {
         }
     }
 }
+}
